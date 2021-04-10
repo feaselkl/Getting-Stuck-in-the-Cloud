@@ -1,0 +1,798 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Catallaxy Services | Getting Stuck in the Cloud</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../WebsiteAssets/mods.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+		
+		<script>
+		  Reveal.initialize({
+			math: {
+			  mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+			  config: 'TeX-AMS_HTML-full',
+			  // pass other options into `MathJax.Hub.Config()`
+			  TeX: { Macros: { RR: "{\\bf R}" } }
+			},
+			plugins: [ RevealMath ]
+		  });
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h2>Getting Stuck in the Cloud</h2>
+					<h3>An Overview of Azure Product Offerings</h3>
+					
+					<a href="https://www.catallaxyservices.com">Kevin Feasel</a> (<a href="https://twitter.com/feaselkl">@feaselkl</a>)<br />
+					<a href="http://CSmore.info/on/thecloud">http://CSmore.info/on/thecloud</a>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Who Am I?  What Am I Doing Here?</h3>
+					<div class="container">
+						<div class="col">
+							<table class="whoami">
+								<tr>
+									<td><a href="https://csmore.info"><img src="../WebsiteAssets/Logo.png" height="100" /></a></td>
+									<td nowrap><a href="https://csmore.info">Catallaxy Services</a></td>
+								</tr>
+								<tr>
+									<td><a href="https://curatedsql.com"><img src="../WebsiteAssets/CuratedSQLLogo.png" height="100" /></a></td>
+									<td nowrap><a href="https://curatedsql.com">Curated SQL</a></td>
+								</tr>
+								<tr>
+									<td><a href="https://www.apress.com/us/book/9781484254608"><img src="../WebsiteAssets/PolyBaseRevealed.png" height="120" /></a></td>
+									<td nowrap><a href="https://www.apress.com/us/book/9781484254608">PolyBase Revealed</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="col">
+							<a href="http://www.twitter.com/feaselkl"><img src="../WebsiteAssets/HeadShot.jpg" height="358" width="315" /></a>
+							<br />
+							<a href="http://www.twitter.com/feaselkl">@feaselkl</a>
+						</div>					
+					</div>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/motivation.jpg" data-background-opacity="0.2">
+					<h3>Motivation</h3>
+					
+					<p>Today's talk will introduce you to "the cloud" and provide an introduction to one cloud:  Microsoft Azure.</p>
+
+					<p>We will review key concepts around whether the cloud makes sense, hiring for the cloud, pricing in the cloud, and review several cloud workloads.</p>
+				</section>
+
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li class="active">Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/clouds.jpg" data-background-opacity="0.2">
+					<h3>What is the Cloud?</h3>
+					
+					<p>"The cloud" is simply a term describing a network of servers.  There are four common types of cloud:</p>
+					
+					<ul>
+						<li>Public cloud:  services provided to the general public over the Internet.</li>
+						<li>Private cloud:  services provided on a private internal network.  Typically on-premises.</li>
+						<li>Hybrid cloud:  services shared between public and private clouds.</li>
+						<li>Community cloud:  services and resources shared between distinct organizations.</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/blue-skies.jpg" data-background-opacity="0.2">
+					<h3>What is Azure?</h3>
+					
+					<p>Azure is Microsoft's cloud offering.  Microsoft provides a variety of services in Azure, ranging from virtual machine that you control all the way to software products like Microsoft Office.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Who are the Competitors?</h3>
+					
+					<p>There are two key players:  Amazon Web Services (AWS) and Azure.  Google and Alibaba are second-tier, and a variety of third-tier providers (IBM, Oracle, Tencent) follow.</p>
+					
+					<img src="presentation/assets/image/canalys-cloud-research.jpg" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Who are the Competitors?</h3>
+					
+					<img src="presentation/assets/image/18819.jpeg" height="550" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Everything-as-a-Service</h3>
+					
+					<p>Product offerings break down into three key categories:  Infrastructure-as-a-Service, Platform-as-a-Service, and Software-as-a-Service.</p>
+					
+					<img src="presentation/assets/image/shared-responsibility.png" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/questions.jpg" data-background-opacity="0.2">
+					<h3>Key Questions to Ask</h3>
+					
+					<p>Here are several key questions you should ask yourself to determine whether you should investigate migrating into the cloud, and if so, to what extent.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/target.jpg" data-background-opacity="0.2">
+					<h3>Key Questions to Ask</h3>
+					
+					<p><strong>1)  What is your goal?</strong></p>
+					
+					<p>There are several viable goals for a cloud migration, such as:</p>
+					<ul>
+						<li>Reducing costs</li>
+						<li>Improving performance</li>
+						<li>Improving scalability</li>
+						<li>Reducing administration work</li>
+					</ul>
+					<p>Note that these goals might be in tension with one another, so you may need to rank priorities.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/ram.jpg" data-background-opacity="0.2">
+					<h3>Key Questions to Ask</h3>
+					
+					<p><strong>2)  What is your current infrastructure?</strong></p>
+					
+					<p>Keeping your current infrastructure will act as the opportunity cost of moving to the cloud.  Considerations include:</p>
+					<ul>
+						<li>Do you own your own data center, are you renting space, or do you keep servers in a closet somewhere?</li>
+						<li>What are your current data center costs?</li>
+						<li>Is your hardware near end-of-life?</li>
+						<li>Is your hardware slow for the workloads you expect?</li>
+						<li>Are you running close to the limit on those machines?  Or maybe they're way overpowered?</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/magnifying-glass.jpg" data-background-opacity="0.2">
+					<h3>Key Questions to Ask</h3>
+					
+					<p><strong>3)  What is your plan?</strong></p>
+					
+					<p>Which of the following makes the most sense to you?</p>
+					<ul>
+						<li>I want my company to be cloud-only--I do not want any on-premises servers.</li>
+						<li>I want my company to be cloud-first--new solutions should be biased toward the cloud, but we recognize some products need to stay on-premises.</li>
+						<li>I want a hybrid approach of cloud and on-premises.  Some solutions or servers should remain on-premises and some solutions or servers should go into the cloud.</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/lego-instructions.jpg" data-background-opacity="0.2">
+					<h3>Key Questions to Ask</h3>
+					
+					<p><strong>4)  How much cloud experience do you have?</strong></p>
+					
+					<p>Key considerations here include:</p>
+					<ul>
+						<li>How many developers or architects have relevant cloud experience?</li>
+						<li>How many operations personnel have relevant cloud experience?</li>
+						<li>What is your strategy to get this experience?</li>
+					</ul>
+					
+					<p>Hiring is a possible strategy for building up skills.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/cloud.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud</h3>
+					
+					<p>Which of the following best suits your needs?</p>
+					
+					<ul>
+						<li>Consultant</li>
+						<li>Contractor</li>
+						<li>Full-time employee</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/challenge.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Consultants</h3>
+					
+					<p>Bring in consultants under the following circumstances:</p>
+					
+					<ul>
+						<li>You want to figure out if a cloud is right for you, or if so, how to maximize value.</li>
+						<li>You want to build up the skills of existing employees (FTE or contract).</li>
+						<li>You expect knowledge transfer or over-the-shoulder work rather than hands-on operation.</li>
+						<li>You are interested in a proof of concept or an architectural design for a pilot.</li>
+					</ul>
+					
+					<p>Consultants are guides but won't carry you up the mountain.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/table.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Contractors</h3>
+					
+					<p>Bring in contractors under the following circumstances:</p>
+					
+					<ul>
+						<li>You are interested in a pilot.</li>
+						<li>You have some employees with cloud experience but need temporary staff augmentation as others get skilled up.</li>
+						<li>You want somebody to check over the work you have done and make modifications as desired.</li>
+					</ul>
+					
+					<p>Contractors fill empty seats quickly and can help skill up employees, but they won't be there forever.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/shoes.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Full-Time Employees</h3>
+					
+					<p>Bring in full-time employees under the following circumstances:</p>
+					
+					<ul>
+						<li>You are interested in developing a full product implementation.</li>
+						<li>You have few or no current employees with relevant cloud experience.</li>
+						<li>You have a good hiring process in place, especially if you don't currently have those skills on your team!</li>
+						<li>You are okay with taking "the long view" with employees and build up skill over time.</li>
+					</ul>
+					
+					<p>You'll need cloud-proficient full-time employees over time; consultants and contractors aren't enough.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/pears.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Full-Time Employees</h3>
+					
+					<p><strong>Augment or Replace?</strong></p>
+					
+					<p>Can you invest in your current employees?  Hopefully so!</p>
+					
+					<p>Augment whenever possible.  Cloud migrations aren't overnight and most skills are still relevant post-migration.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/problem.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Who?</h3>
+					
+					<p>One myth of hiring for the cloud is the idea that you can get rid of administrators.  This is <strong>not</strong> true!  In the cloud, these people:</p>
+					
+					<ul>
+						<li>Deal with Active Directory (e.g., Azure Active Directory)</li>
+						<li>Own and manage virtual machines</li>
+						<li>Configure the network, including links from on-premises to the cloud</li>
+						<li>Manage and apply network security rules</li>
+						<li>Configure and manage virtual private networks (VPNs)</li>
+						<li>Deploy, monitor, and manage cloud-based services</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/sound-mixer.jpg" data-background-opacity="0.2">
+					<h3>Hiring for the Cloud -- Mixed Ops</h3>
+					
+					<p>The type of administrator who thrives in the cloud engages in "mixed" ops:  DevOps, DataOps, MLOps, etc.  This means:</p>
+					
+					<ul>
+						<li>Infrastructure as code:  scripting or programming</li>
+						<li>Deploy assets programmatically rather than through the web interface</li>
+						<li>Use source control and create build processes</li>
+					</ul>
+					
+					<p>As a bonus, ops people have a clear signal for improvements:  saving money by optimizing queries or handling load more efficiently.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/clouds-sunrise.jpg" data-background-opacity="0.2">
+					<h3>Scaling in the Cloud -- The Dream</h3>
+					
+					<p>Technical sales personnel for cloud organizations will sell you on limitless scale:</p>
+					
+					<ul>
+						<li>Scale up as you need it and down when you don't--seamlessly!</li>
+						<li>Save money by scaling down or even turning off services after hours</li>
+						<li>As your company grows, scaling up is as simple as manipulating a slider</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/storm-clouds.jpg" data-background-opacity="0.2">
+					<h3>Scaling in the Cloud -- The Reality</h3>
+					
+					<p>Scalability is real, but it comes with certain costs.</p>
+					
+					<ul>
+						<li>Downtime typically happens when switching performance tiers, especially for things like database servers.</li>
+						<li>Scaling may require a downtime window, and you won't know exactly how long that window will be.</li>
+						<li>Scaling has its practical limits.</li>
+						<li>Pricing is usually linear with respect to scale.</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/philosophy.jpg" data-background-opacity="0.2">
+					<h3>Scaling in the Cloud -- The Advice</h3>
+					
+					<p>The best scalability scenarios are around seasonality, followed by "office hours."</p>
+					
+					<p>Take a close look at which services can scale without downtime and which require downtime.  Some services, such as web servers, can scale horizontally with no downtime.  Others, like database servers, cannot.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/raspberry-pi.jpg" data-background-opacity="0.2">
+					<h3>Serverless Technologies</h3>
+					
+					<p>Cloud providers can also offer "serverless" products--you don't manage any of the infrastructure, but can execute code.  These can be much less expensive in cases where you'd otherwise use a small percentage of a server's capacity.</p>
+					
+					<p>Examples of serverless products in Azure include:</p>
+					
+					<ul>
+						<li>Serverless SQL pools in Azure Synapse Analytics</li>
+						<li>Azure SQL Database serverless compute tier</li>
+						<li>Azure Functions</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li class="active">Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/cash-register.jpg" data-background-opacity="0.2">
+					<h3>The Billing Model</h3>
+					
+					<p>Cloud providers generally use a pay-for-use model with monthly billing.  This is a <strong>Operating Expenditures</strong> (OpEx) billing model.</p>
+					
+					<p>On-premises hosting is typically financed via <strong>Capital Expenditures</strong> (CapEx).</p>
+					
+					<p>OpEx tends to be the easier method to gain budgetary approval from accounting.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/price.jpg" data-background-opacity="0.2">
+					<h3>The Cost of Everything</h3>
+					
+					<p>With cloud providers, almost everything has a price.</p>
+					
+					<ul>
+						<li>Data ingress?  Usually <strong>free</strong></li>
+						<li>Data egress?  <strong>Pay</strong></li>
+						<li>Data storage?  <strong>Pay</strong></li>
+						<li>Compute?  <strong>Pay</strong></li>
+						<li>Network utilization?  <strong>Pay</strong></li>
+						<li>High availability?  <strong>Pay</strong></li>
+						<li>Faster performance?  <strong>Pay</strong></li>
+					</ul>
+					
+					<p>That said, some services are free or have free tiers.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/abacus.jpg" data-background-opacity="0.2">
+					<h3>The Calculator</h3>
+					
+					<p>Azure has <a href="https://azure.microsoft.com/en-us/pricing/calculator/">a fully-featured pricing calculator</a>.</p>
+					
+					<img src="presentation/assets/image/pricing-calculator.jpg" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
+					<h3>Points of Confusion around Pricing</h3>
+					
+					<p><strong>1) Complexity with the Pricing Calculator</strong></p>
+					
+					<p>One common complaint about cloud pricing calculators (not just Azure's!) is the complexity.</p>
+
+					<p>Another is that pricing terminology changes between services.</p>
+					
+					<p>If you are new to Azure or to a particular Azure service, you will likely underestimate the actual cost.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-1.jpg" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-2.jpg" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-3.jpg" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-4.jpg" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-5.jpg" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-6.jpg" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>The Calculator -- Azure Synapse Analytics</h3>
+					
+					<img src="presentation/assets/image/synapse-7.jpg" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
+					<h3>Points of Confusion around Pricing</h3>
+					
+					<p><strong>2) Tiers, SKUs, and More</strong></p>
+					
+					<p>Each offering in Azure tends to have multiple tiers.  The terms "Basic," "Standard," and "Premium" give you an idea of relative quality, but what they provide can differ drastically between services.</p>
+					
+					<p>For an example of the extreme, there's Azure SQL Database...</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/Variety.jpg" data-background-opacity="0.2">
+					<h3>Azure SQL Database Service Tiers</h3>
+					
+					<ul>
+						<li>DTU Model
+							<ul>
+								<li>Basic</li>
+								<li>Standard</li>
+								<li>Premium</li>
+							</ul>
+						</li>
+						<li>vCore Model
+							<ul>
+								<li>General Purpose</li>
+								<li>Business Critical</li>
+								<li>Hyperscale</li>
+							</ul>
+						</li>
+						<li>Serverless</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
+					<h3>Points of Confusion around Pricing</h3>
+					
+					<p><strong>3) Cross-product Variants</strong></p>
+					
+					<p>Do you want a Spark cluster?  Take your choice:</p>
+					
+					<ul>
+						<li>Azure HDInsight</li>
+						<li>Azure Databricks</li>
+						<li>Azure Synapse Analytics</li>
+						<li>SQL Server Big Data Clusters</li>
+						<li>Build it with VMs</li>
+						<li>Build it with containers on Azure Kubernetes Service</li>
+						<li>Build it in Azure Machine Learning</li>
+						<li>Maybe something else too?</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/monkey-thinking.jpg" data-background-opacity="0.2">
+					<h3>Demystifying Pricing</h3>
+
+					<p>My recommendations:</p>
+					
+					<ul>
+						<li>Check whether there is guidance on expected pricing for migrations</li>
+						<li>Talk to your sales rep!</li>
+						<li>Try it out as a pilot and scale up as needed</li>
+						<li>Review the bill--it's itemized</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/server-room.jpg" data-background-opacity="0.2">
+					<h3>The Secret to a Cheaper Cloud Experience</h3>
+
+					<p>If you simply migrate your existing VMs and applications to the cloud, you almost certainly <strong>will</strong> pay more!  Why?</p>
+					
+					<ul>
+						<li>The savings from reduced administration end up being lost to VM fees</li>
+						<li>On-premises hardware can be depreciated over several years</li>
+						<li>Non-cloud applications assume fixed hardware and grow to that limit</li>
+						<li>It's easier to ignore technical debt on-premises by buying new hardware</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/clouds-red.jpg" data-background-opacity="0.2">
+					<h3>The Secret to a Cheaper Cloud Experience</h3>
+
+					<p>What we want instead is <strong>cloud-native</strong> development:</p>
+					
+					<ul>
+						<li>Event-driven and asynchronous, spreading out load over time</li>
+						<li>Run on scaled down hardware or serverless</li>
+						<li>Small services with limited, independent functionality and separate data, often run in containers or as Function apps</li>
+					</ul>
+					
+					<p>Classic on-premises applications tend to be none of these because the hardware model is different.  Simply moving them to the cloud leads to a large bill!  In the cloud, <strong>time is money</strong>.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/connections.jpg" data-background-opacity="0.2">
+					<h3>The Secret to a Cheaper Cloud Experience</h3>
+
+					<p>How do we get there from here?</p>
+					
+					<ul>
+						<li>Take smaller product offerings and move them up first</li>
+						<li>Perform ruthless technical debt cleanup
+							<ul>
+								<li>Remove external dependencies</li>
+								<li>Change access patterns--interact through an API</li>
+								<li>Optimize code performance and database performance</li>
+								<li>Minimize network bandwidth utilization</li>
+							</ul>
+						</li>
+						<li>Study up on cloud architectures; they're not the same as what works on-premises</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li class="active">Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Azure Services</h3>
+
+					<p>Lots of Azure services are available, as shown by <a href="https://azurecharts.com">Azure Charts</a>.</p>
+					
+					<img src="presentation/assets/image/azure-services-1.jpg" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Azure Service Utilization</h3>
+
+					<p>Review the types of services which work well for your industry and organization size.</p>
+					
+					<img src="presentation/assets/image/azure-evidence-map.jpg" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Azure Updates</h3>
+
+					<p>Azure services update frequently!</p>
+					
+					<img src="presentation/assets/image/azure-updates.jpg" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Reference Architectures</h3>
+
+					<p>Plenty of reference architectures give you an idea of how services fit together.</p>
+					
+					<img src="presentation/assets/image/reference-architectures.jpg" height="450" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/demo.jpg" data-background-opacity="0.2">
+					<h3>Demo Time</h3>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li class="active">Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Scalable Web Application</h3>
+					
+					<img src="presentation/assets/image/scalable-web-app.png" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/scale.jpg" data-background-opacity="0.2">
+					<h3>Saving Money</h3>
+
+					<p>Can we save money over this design?</p>
+					
+					<ul>
+						<li>Cache heavily</li>
+						<li>CDNs are cheap--use them!</li>
+						<li>Scale if you experience bursty behavior</li>
+						<li>Prefer well-designed, fast functions</li>
+						<li>Look for service overlap:  Azure Front Door Standard & Premium include a CDN plus a WAF.</li>
+						<li>Remove Azure Search + Cosmos or SQL</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li class="active">Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<img src="presentation/assets/image/azure-data-platform-end-to-end.jpg" height="680" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/rejection.jpg" data-background-opacity="0.2">
+					<h3>Saving Money</h3>
+
+					<p>Can we save money over this design?  Yes, by reducing service counts!</p>
+					
+					<ul>
+						<li>Typically, Databricks <strong>or</strong> Azure Synapse Analytics</li>
+						<li>For smaller data sets, neither!</li>
+						<li>Replace Cosmos DB with Azure SQL Database</li>
+						<li>Look at Power BI Premium Per User</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li class="active">BOPIS</li>
+						<li>Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Buy Online, Pickup in Store (BOPIS)</h3>
+					
+					<p>"Buy Online, Pickup in Store," or BOPIS has become a method for brick-and-mortar stores to incorporate e-commerce elements.</p>
+					
+					<img src="presentation/assets/image/bopis-parking.jpg" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Buy Online, Pickup in Store (BOPIS)</h3>
+					
+					<img src="presentation/assets/image/bopis.png" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/auto-traffic.jpg" data-background-opacity="0.2">
+					<h3>Saving Money</h3>
+
+					<p>Can we save money over this design?</p>
+					
+					<ul>
+						<li>Scale down less critical services</li>
+						<li>Keep functions &amp; notifications tight</li>
+					</ul>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Agenda</h3>
+					
+					<ol>
+						<li>Cloud Basics</li>
+						<li>Pricing in the Cloud</li>
+						<li>Getting a Feel for Azure</li>
+						<li>Scalable Web Application</li>
+						<li>Azure Data Platform</li>
+						<li>BOPIS</li>
+						<li class="active">Microservices with AKS</li>
+					</ol>
+				</section>
+				
+				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
+					<h3>Microservices with AKS</h3>
+					
+					<img src="presentation/assets/image/aks.png" height="500" />
+				</section>
+				
+				<section data-background-image="presentation/assets/background/nesting-pots.jpg" data-background-opacity="0.2">
+					<h3>Saving Money</h3>
+
+					<p>Can we save money over this design?</p>
+					
+					<ul>
+						<li>Use Azure Container Instances for dev and test</li>
+						<li>For fairly simple apps, use App Services instead</li>
+						<li>Use the same Kubernetes cluster to deploy several microservices</li>
+						<li>Reduce VM size for Kubernetes cluster</li>
+					</ul>
+				</section>
+
+				<section data-background-image="presentation/assets/background/wrapping-paper.jpg" data-background-opacity="0.2">
+					<h3>Wrapping Up</h3>
+					
+					<p>Microsoft Azure is a fully-featured cloud service provider offering a variety of services to suit different needs.  These range from virtual machines and Infrastructure-as-a-Service offerings to Platform-as-a-Service offerings like databases, up to fully managed Software-as-a-Service products like Microsoft 365.</p>
+					
+					<p>Use cloud-native design to save costs on that cloud migration.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/wrapping-paper.jpg" data-background-opacity="0.2">
+					<h3>Wrapping Up</h3>
+					
+					<p>
+						To learn more, go here:
+						<br />
+						<a href="https://csmore.info/on/thecloud">https://CSmore.info/on/thecloud</a>
+					</p>
+					<br />
+					<p>
+						And for help, contact me:
+						<br />
+						<a href="mailto:feasel@catallaxyservices.com">feasel@catallaxyservices.com</a> | <a href="https://www.twitter.com/feaselkl">@feaselkl</a>
+					</p>
+					<br />
+					<p>
+						Catallaxy Services consulting:
+						<br />
+						<a href="https://csmore.info/contact">https://CSmore.info/on/contact</a>
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/search/search.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script src="../reveal.js/plugin/menu/menu.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/chart/Chart.min.js"></script>
+		<script src="../reveal.js/plugin/chart/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: '70%',
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				transition: 'fade',
+				
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealMenu, RevealChart ]
+			});
+		</script>
+	</body>
+</html>

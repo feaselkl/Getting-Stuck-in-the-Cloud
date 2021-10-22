@@ -69,7 +69,7 @@
 					
 					<p>Today's talk will introduce you to "the cloud" and provide an introduction to one cloud:  Microsoft Azure.</p>
 
-					<p>We will review key concepts around whether the cloud makes sense, hiring for the cloud, pricing in the cloud, and review several cloud workloads.</p>
+					<p>We will review key concepts around whether the cloud makes sense, hiring for the cloud, and review several cloud workloads.</p>
 				</section>
 
 				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
@@ -77,7 +77,6 @@
 					
 					<ol>
 						<li class="active">Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li>Getting a Feel for Azure</li>
 						<li>Scalable Web Application</li>
 						<li>Azure Data Platform</li>
@@ -338,221 +337,6 @@
 					
 					<ol>
 						<li>Cloud Basics</li>
-						<li class="active">Pricing in the Cloud</li>
-						<li>Getting a Feel for Azure</li>
-						<li>Scalable Web Application</li>
-						<li>Azure Data Platform</li>
-						<li>BOPIS</li>
-						<li>Microservices with AKS</li>
-					</ol>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/cash-register.jpg" data-background-opacity="0.2">
-					<h3>The Billing Model</h3>
-					
-					<p>Cloud providers generally use a pay-for-use model with monthly billing.  This is a <strong>Operating Expenditures</strong> (OpEx) billing model.</p>
-					
-					<p>On-premises hosting is typically financed via <strong>Capital Expenditures</strong> (CapEx).</p>
-					
-					<p>OpEx tends to be the easier method to gain budgetary approval from accounting.</p>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/price.jpg" data-background-opacity="0.2">
-					<h3>The Cost of Everything</h3>
-					
-					<p>With cloud providers, almost everything has a price.</p>
-					
-					<ul>
-						<li>Data ingress?  Usually <strong>free</strong></li>
-						<li>Data egress?  <strong>Pay</strong></li>
-						<li>Data storage?  <strong>Pay</strong></li>
-						<li>Compute?  <strong>Pay</strong></li>
-						<li>Network utilization?  <strong>Pay</strong></li>
-						<li>High availability?  <strong>Pay</strong></li>
-						<li>Faster performance?  <strong>Pay</strong></li>
-					</ul>
-					
-					<p>That said, some services are free or have free tiers.</p>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/abacus.jpg" data-background-opacity="0.2">
-					<h3>The Calculator</h3>
-					
-					<p>Azure has <a href="https://azure.microsoft.com/en-us/pricing/calculator/">a fully-featured pricing calculator</a>.</p>
-					
-					<img src="presentation/assets/image/pricing-calculator.jpg" height="450" />
-				</section>
-				
-				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
-					<h3>Points of Confusion around Pricing</h3>
-					
-					<p><strong>1) Complexity with the Pricing Calculator</strong></p>
-					
-					<p>One common complaint about cloud pricing calculators (not just Azure's!) is the complexity.</p>
-
-					<p>Another is that pricing terminology changes between services.</p>
-					
-					<p>If you are new to Azure or to a particular Azure service, you will likely underestimate the actual cost.</p>
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-1.jpg" height="500" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-2.jpg" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-3.jpg" height="500" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-4.jpg" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-5.jpg" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-6.jpg" height="500" />
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>The Calculator -- Azure Synapse Analytics</h3>
-					
-					<img src="presentation/assets/image/synapse-7.jpg" />
-				</section>
-				
-				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
-					<h3>Points of Confusion around Pricing</h3>
-					
-					<p><strong>2) Tiers, SKUs, and More</strong></p>
-					
-					<p>Each offering in Azure tends to have multiple tiers.  The terms "Basic," "Standard," and "Premium" give you an idea of relative quality, but what they provide can differ drastically between services.</p>
-					
-					<p>For an example of the extreme, there's Azure SQL Database...</p>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/Variety.jpg" data-background-opacity="0.2">
-					<h3>Azure SQL Database Service Tiers</h3>
-					
-					<ul>
-						<li>DTU Model
-							<ul>
-								<li>Basic</li>
-								<li>Standard</li>
-								<li>Premium</li>
-							</ul>
-						</li>
-						<li>vCore Model
-							<ul>
-								<li>General Purpose</li>
-								<li>Business Critical</li>
-								<li>Hyperscale</li>
-							</ul>
-						</li>
-						<li>Serverless</li>
-					</ul>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/skeleton-thinking.jpg" data-background-opacity="0.2">
-					<h3>Points of Confusion around Pricing</h3>
-					
-					<p><strong>3) Cross-product Variants</strong></p>
-					
-					<p>Do you want a Spark cluster?  Take your choice:</p>
-					
-					<ul>
-						<li>Azure HDInsight</li>
-						<li>Azure Databricks</li>
-						<li>Azure Synapse Analytics</li>
-						<li>SQL Server Big Data Clusters</li>
-						<li>Build it with VMs</li>
-						<li>Build it with containers on Azure Kubernetes Service</li>
-						<li>Build it in Azure Machine Learning</li>
-						<li>Maybe something else too?</li>
-					</ul>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/monkey-thinking.jpg" data-background-opacity="0.2">
-					<h3>Demystifying Pricing</h3>
-
-					<p>My recommendations:</p>
-					
-					<ul>
-						<li>Check whether there is guidance on expected pricing for migrations</li>
-						<li>Talk to your sales rep!</li>
-						<li>Try it out as a pilot and scale up as needed</li>
-						<li>Review the bill--it's itemized</li>
-					</ul>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/server-room.jpg" data-background-opacity="0.2">
-					<h3>The Secret to a Cheaper Cloud Experience</h3>
-
-					<p>If you simply migrate your existing VMs and applications to the cloud, you almost certainly <strong>will</strong> pay more!  Why?</p>
-					
-					<ul>
-						<li>The savings from reduced administration end up being lost to VM fees</li>
-						<li>On-premises hardware can be depreciated over several years</li>
-						<li>Non-cloud applications assume fixed hardware and grow to that limit</li>
-						<li>It's easier to ignore technical debt on-premises by buying new hardware</li>
-					</ul>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/clouds-red.jpg" data-background-opacity="0.2">
-					<h3>The Secret to a Cheaper Cloud Experience</h3>
-
-					<p>What we want instead is <strong>cloud-native</strong> development:</p>
-					
-					<ul>
-						<li>Event-driven and asynchronous, spreading out load over time</li>
-						<li>Run on scaled down hardware or serverless</li>
-						<li>Small services with limited, independent functionality and separate data, often run in containers or as Function apps</li>
-					</ul>
-					
-					<p>Classic on-premises applications tend to be none of these because the hardware model is different.  Simply moving them to the cloud leads to a large bill!  In the cloud, <strong>time is money</strong>.</p>
-				</section>
-				
-				<section data-background-image="presentation/assets/background/connections.jpg" data-background-opacity="0.2">
-					<h3>The Secret to a Cheaper Cloud Experience</h3>
-
-					<p>How do we get there from here?</p>
-					
-					<ul>
-						<li>Take smaller product offerings and move them up first</li>
-						<li>Perform ruthless technical debt cleanup
-							<ul>
-								<li>Remove external dependencies</li>
-								<li>Change access patterns--interact through an API</li>
-								<li>Optimize code performance and database performance</li>
-								<li>Minimize network bandwidth utilization</li>
-							</ul>
-						</li>
-						<li>Study up on cloud architectures; they're not the same as what works on-premises</li>
-					</ul>
-				</section>
-				
-				<section data-background-image="presentation/assets/image/Bubbles.jpg" data-background-opacity="0.4">
-					<h3>Agenda</h3>
-					
-					<ol>
-						<li>Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li class="active">Getting a Feel for Azure</li>
 						<li>Scalable Web Application</li>
 						<li>Azure Data Platform</li>
@@ -602,7 +386,6 @@
 					
 					<ol>
 						<li>Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li>Getting a Feel for Azure</li>
 						<li class="active">Scalable Web Application</li>
 						<li>Azure Data Platform</li>
@@ -637,7 +420,6 @@
 					
 					<ol>
 						<li>Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li>Getting a Feel for Azure</li>
 						<li>Scalable Web Application</li>
 						<li class="active">Azure Data Platform</li>
@@ -668,7 +450,6 @@
 					
 					<ol>
 						<li>Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li>Getting a Feel for Azure</li>
 						<li>Scalable Web Application</li>
 						<li>Azure Data Platform</li>
@@ -707,7 +488,6 @@
 					
 					<ol>
 						<li>Cloud Basics</li>
-						<li>Pricing in the Cloud</li>
 						<li>Getting a Feel for Azure</li>
 						<li>Scalable Web Application</li>
 						<li>Azure Data Platform</li>
@@ -739,8 +519,12 @@
 					<h3>Wrapping Up</h3>
 					
 					<p>Microsoft Azure is a fully-featured cloud service provider offering a variety of services to suit different needs.  These range from virtual machines and Infrastructure-as-a-Service offerings to Platform-as-a-Service offerings like databases, up to fully managed Software-as-a-Service products like Microsoft 365.</p>
+				</section>
+				
+				<section data-background-image="presentation/assets/background/wrapping-paper.jpg" data-background-opacity="0.2">
+					<h3>Wrapping Up</h3>
 					
-					<p>Use cloud-native design to save costs on that cloud migration.</p>
+					<p>One area we did <strong>not</strong> cover today involves pricing.  That's because I have a companion talk entitled Saving Your Wallet from the Cloud, accessible at <a href="https://csmore.info/on/wallet">https://csmore.info/on/wallet</a>.</p>
 				</section>
 				
 				<section data-background-image="presentation/assets/background/wrapping-paper.jpg" data-background-opacity="0.2">
